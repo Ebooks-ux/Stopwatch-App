@@ -1,29 +1,29 @@
-# A chrono minmal stopwatch App
-I built a responsive  frontend stopwatch application, that allows users to accurately track elased time with start pause resset and laps recording functionality.
-The application stores lapse history locally to preserve data after pages refreshes and include a dark/light mode for improved users experience
+# A chrono minimal stopwatch App
+I built a responsive  frontend stopwatch application that allows users to accurately track elapsed time with start/pause/reset and lap-recording functionality.
+The application stores lap history locally to preserve data after page refreshes and includes a dark/light mode for an improved user experience
 
 # Features
-start pause and reset stopwatch
+Start, pause, and reset stopwatch
 Record and display lap times
-save lap history using local storage
+Save lap history using local storage
 Export lap record as CSV file
 Dark/light mode toggle
 keyboard shortcut for quick controls
-responsive design for desktop and mobile devices
-milliseconds precision time display
+Responsive design for desktop and mobile devices
+Millisecond-precision time display
 
 # Technology used
 HTML5
 CSS3
 JavaScript(ES6)
-local storage API
+Local storage API
 
 # Note
 The App is still actively under development
 
 # Future improvement
-Add sound notification when statring pausing or reaching a target time
-intergrate backend to schronize lap history
+Add sound notification when starting, pausing, or reaching a target time
+Integrate backend to synchronize lap history
 
 # License
 This project is licensed under the MIT License.
