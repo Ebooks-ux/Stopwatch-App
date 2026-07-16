@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Link to our custom stylesheet -->
+    <link type="text/css" rel="stylesheet" href="styles.css">
+    <title>Stopwatch App</title>
+</head>
+<body>
+    <!-- Main Application Header -->
+    <h1 id="myH1">Stopwatch</h1>
+
+    <!-- Main Container for the Stopwatch UI -->
+    <div id="container">
+        <!-- Timer Display Area -->
+        <div id="display">
+             00:00:00:00
+        </div>
+        
+        <!-- Action Buttons and Controls -->
+        <div id="controls">
+             <button id="startBtn" onclick="start()">Start</button>
+             <button id="stopBtn" onclick="stop()">Stop</button>
+             <button id="resetBtn" onclick="reset()">Reset</button>
+             <button id="lapBtn" onclick="recordLap()">Lap</button>
+
+             <!-- Lap Records Container -->
+             <div id="lapContainer">
+                <h2>Laps</h2>
+                <ul id="lapList"></ul>
+             </div>
+             
+             <!-- Additional Utilities -->
+             <button id="themeBtn">Toggle Theme</button>
+             <button id="exportBtn" onclick="exportCSV()">Export CSV</button>
+        </div>
+    </div>
+
+    <!-- Link to main logic script -->
+    <script src="script.js"></script>
+</body>
+</html>

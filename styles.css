@@ -1,0 +1,229 @@
+/* =========================================================
+   Base Styling & Reset
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    /* Default to a soft dark aesthetic for the base */
+    background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+    background-size: cover;
+    color: #e2e8f0;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Light mode overrides */
+body.light {
+    background: linear-gradient(135deg, #e2e8f0, #f8fafc, #cbd5e1);
+    color: #0f172a;
+}
+
+/* =========================================================
+   Typography & Headers
+   ========================================================= */
+#myH1 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: inherit;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================================
+   Glassmorphism Container
+   ========================================================= */
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    
+    /* Authentic Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.light #container {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+}
+
+#container:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+body.light #container:hover {
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+}
+
+/* =========================================================
+   Timer Display
+   ========================================================= */
+#display {
+    font-size: 3.5rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    font-variant-numeric: tabular-nums;
+}
+
+body.light #display {
+    color: #1e293b;
+    text-shadow: none;
+}
+
+/* =========================================================
+   Controls & Buttons
+   ========================================================= */
+#controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+button {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    flex: 1 1 calc(50% - 15px); /* Responsive sizing for buttons */
+    max-width: 150px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific Button Colors */
+#startBtn { background: rgba(16, 185, 129, 0.8); border: 1px solid rgba(16, 185, 129, 0.5); }
+#stopBtn { background: rgba(239, 68, 68, 0.8); border: 1px solid rgba(239, 68, 68, 0.5); }
+#resetBtn { background: rgba(59, 130, 246, 0.8); border: 1px solid rgba(59, 130, 246, 0.5); }
+#lapBtn { background: rgba(168, 85, 247, 0.8); border: 1px solid rgba(168, 85, 247, 0.5); }
+
+/* Utility Buttons (Full Width) */
+#themeBtn, #exportBtn {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+#themeBtn { background: rgba(100, 116, 139, 0.8); border: 1px solid rgba(100, 116, 139, 0.5); }
+#exportBtn { background: rgba(245, 158, 11, 0.8); border: 1px solid rgba(245, 158, 11, 0.5); }
+
+/* =========================================================
+   Lap List Styling
+   ========================================================= */
+#lapContainer {
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+#lapContainer h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+    text-align: center;
+    color: inherit;
+    opacity: 0.9;
+}
+
+#lapList {
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Custom Scrollbar for Lap List */
+#lapList::-webkit-scrollbar {
+    width: 6px;
+}
+#lapList::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+#lapList::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+#lapList li {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    transition: background 0.2s ease;
+}
+
+#lapList li:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+body.light #lapList li {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================================
+   Mobile Responsive
+   ========================================================= */
+@media (max-width: 480px) {
+    #display {
+        font-size: 2.8rem;
+    }
+    #container {
+        padding: 30px 20px;
+    }
+    button {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+}
